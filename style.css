@@ -1,0 +1,365 @@
+/* Cores Principais */
+:root {
+    --primary-color: #feca57;  /* Amarelo (NoBreak) */
+    --secondary-color: #222f3e; /* Cinza Escuro */
+    --text-color: #353b48;      /* Cinza Médio */
+    --bg-color: #f1f2f6;        /* Cinza Claro */
+    --accent-color: #48dbfb;    /* Azul Claro */
+    --whatsapp-color: #25d366;
+}
+
+/* Reset e Base */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #00a8ff;
+}
+
+/* Header */
+header {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo a {
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    display: block;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+}
+
+.logo-no {
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+    margin-right: 1rem;
+}
+
+nav a {
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Main */
+main {
+    flex: 1;
+}
+
+/* Estilos para a Landing Page (Mantidos como antes) */
+.landing-page {
+    background-color: var(--bg-color);
+    padding: 3rem 2rem;
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.landing-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.landing-image {
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.landing-text {
+    text-align: left;
+    margin-left: 3rem;
+    max-width: 600px;
+}
+
+.landing-text h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.landing-text p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.landing-button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 14px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.landing-button:hover {
+    background-color: #eab543;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.landing-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0.15;
+    z-index: 1;
+}
+
+.landing-banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Seção de Pesquisa */
+.search-section {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.search-section h2 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.search-section p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Container Principal da Barra e Resultados */
+.search-bar-container {
+    max-width: 600px;
+    margin: 0 auto; /* Centraliza o container geral */
+    /* position: relative; */ /* REMOVIDO - Não precisa mais ser contexto de pos */
+}
+
+/* Wrapper Apenas para Input e Botão */
+.search-input-wrapper {
+    position: relative; /* Para posicionar o botão da lupa */
+    margin-bottom: 0; /* Remove margem para conectar com a lista */
+}
+
+#search-input {
+    padding: 0.8rem 1.2rem;
+    width: 100%;
+    border: 2px solid #ddd;
+    /* Borda inferior será controlada pela lista quando visível */
+    /* border-bottom-color: transparent; */
+    border-radius: 10px; /* Arredonda cantos superiores */
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    padding-right: 50px;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(254, 202, 87, 0.5);
+    /* Mantém a borda inferior transparente no foco */
+     border-bottom-color: transparent !important;
+}
+
+#search-button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+    background-color: #eab543;
+}
+
+
+/* Lista de Resultados - Nova Abordagem */
+#search-results {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Sem margem */
+    width: 100%; /* Ocupa a largura do .search-bar-container */
+    border: 2px solid #ddd; /* Borda igual ao input */
+    border-top: none; /* Remove borda superior */
+    border-radius: 0 0 8px 8px; /* Arredonda cantos inferiores */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Mantém a sombra */
+    /* position: absolute; */ /* REMOVIDO */
+    /* top: 100%; */ /* REMOVIDO */
+    /* left: 0; */ /* REMOVIDO */
+    /* right: 0; */ /* REMOVIDO */
+    z-index: 900; /* Mantido caso precise sobrepor algo abaixo */
+    max-height: 250px;
+    overflow-y: auto;
+    display: none; /* Começa escondido */
+    text-align: left; /* Alinha texto à esquerda */
+}
+
+/* Estilo para quando a lista está visível (adicionado pelo JS) */
+#search-results.visible {
+    display: block;
+}
+
+/* Ajuste visual para conectar input e lista quando visível */
+/* Quando a lista está visível, removemos o border-radius inferior do input */
+#search-input:has(~ #search-results.visible) { /* Funciona em navegadores modernos */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: transparent !important; /* Força a remoção da borda */
+}
+/* Fallback ou alternativa se :has não funcionar */
+.search-bar-container.results-visible #search-input {
+     border-bottom-left-radius: 0;
+     border-bottom-right-radius: 0;
+     border-bottom-color: transparent !important; /* Força a remoção da borda */
+}
+.search-bar-container.results-visible #search-results {
+    border-color: var(--primary-color); /* Borda da lista destaca no foco */
+    border-top-color: #ddd; /* Restaura a cor da borda superior da lista */
+}
+
+
+#search-results li {
+    padding: 0.75rem 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#search-results li:hover {
+    background-color: #f5f5f5;
+}
+
+/* Footer (Mantido como antes) */
+footer {
+    background-color: var(--secondary-color);
+    color: #ccc;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+.contact-info { margin-bottom: 1rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+.contact-info h3 { font-size: 1.3rem; margin-bottom: 1rem; color: white; }
+.contact-info p { margin: 0.5rem 0; display: flex; justify-content: center; align-items: center; gap: 0.5rem; }
+.contact-info p i { color: var(--primary-color); }
+footer p:last-child { margin-top: 1.5rem; font-size: 0.8rem; color: #aaa; }
+
+/* WhatsApp Button (Mantido como antes) */
+.whatsapp-button { position: fixed; bottom: 25px; right: 25px; background-color: var(--whatsapp-color); color: white; padding: 1rem; border-radius: 50%; font-size: 1.8rem; text-decoration: none; z-index: 999; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 3px 10px rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center; width: 60px; height: 60px; }
+.whatsapp-button:hover { background-color: #128c7e; transform: scale(1.05); }
+
+/* Responsividade (Ajustes menores na seção de pesquisa) */
+@media (max-width: 992px) {
+    .landing-content { flex-direction: column; text-align: center; }
+    .landing-image { max-width: 250px; margin-bottom: 2rem; }
+    .landing-text { margin-left: 0; text-align: center; }
+}
+@media (max-width: 768px) {
+    header { flex-direction: column; align-items: center; position: static; }
+    .logo a{ font-size: 3rem; margin-left: 0; padding: 0.5rem; }
+    nav { margin-top: 1rem; width: 100%; }
+    nav ul { flex-direction: column; align-items: center; width: 100%; }
+    nav ul li { margin-left: 0; margin-bottom: 0.5rem; width: 100%; text-align: center; }
+    nav a { display: block; padding: 0.8rem 1rem; }
+    main { padding: 0; }
+    .landing-page, .search-section { padding: 2rem 1rem; }
+    .landing-text h2 { font-size: 2rem; }
+    .landing-text p { font-size: 1.1rem; }
+    .search-section h2 { font-size: 1.8rem; }
+     .search-section p { font-size: 1rem; }
+    .search-bar-container { max-width: 95%; }
+     #search-input { padding: 0.7rem 1rem; padding-right: 45px; }
+    #search-button { width: 35px; height: 35px; font-size: 0.9rem; }
+    #search-results {
+         /* Ajuste para borda conectar melhor no mobile */
+         border-radius: 0 0 8px 8px;
+    }
+    .whatsapp-button { bottom: 15px; right: 15px; width: 50px; height: 50px; font-size: 1.5rem; }
+}
+
+/* Estilos para a página de detalhes da bateria (Mantidos) */
+/* ... (código anterior mantido) ... */

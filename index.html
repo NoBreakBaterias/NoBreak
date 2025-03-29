@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baterias Automotivas - NoBreak</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <span class="logo-no">No</span><span class="logo-break">Break</span>
+            </a>
+        </div>
+        <nav>
+            <!-- Adicione aqui outros links de navegação, se necessário -->
+        </nav>
+    </header>
+
+    <main>
+        <!-- Landing Page -->
+        <section class="landing-page">
+            <div class="landing-content">
+                <img src="https://moura-portal.s3.amazonaws.com/ext/Moura_Pack_Frontal.png" alt="Bateria Moura" class="landing-image">
+                <div class="landing-text">
+                    <h2>Potencialize Seu Carro com as Baterias NoBreak!</h2>
+                    <p>Encontre a bateria ideal para seu veículo e garanta o melhor desempenho e durabilidade.</p>
+                     <a href="#search-container" class="landing-button">Consultar Bateria</a>
+                </div>
+            </div>
+            <div class="landing-banner">
+                <img src="banner_background.png" alt="Banner Background" class="landing-banner-image">
+            </div>
+        </section>
+
+        <!-- Seção de Pesquisa -->
+        <section class="search-section" id="search-container">
+            <h2>Consulte a Bateria Ideal</h2>
+            <p>Digite o modelo do seu carro abaixo e fale conosco pelo WhatsApp!</p>
+            <!-- Container da Barra e Resultados -->
+            <div class="search-bar-container">
+                 <!-- Barra de Pesquisa e Botão -->
+                 <div class="search-input-wrapper">
+                    <input type="text" id="search-input" placeholder="Digite o modelo do seu carro...">
+                    <button id="search-button" aria-label="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <!-- Lista de Resultados AGORA DENTRO -->
+                <ul id="search-results"></ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="contact-info">
+            <h3>Precisa de Ajuda? Entre em Contato!</h3>
+            <p><i class="fas fa-phone"></i> Telefone: (XX) XXXX-XXXX</p>
+            <p><i class="fas fa-envelope"></i> Email: contato@example.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Endereço: Rua Exemplo, 123 - Cidade/UF</p>
+        </div>
+        <p>© 2024 NoBreak Baterias. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão WhatsApp Flutuante (Contato Geral) -->
+    <a href="https://wa.me/SEU_NUMERO_WHATSAPP" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

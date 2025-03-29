@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Por favor, digite ou selecione um modelo de carro.");
             return;
         }
-        const numeroWhatsApp = "+55428402-3985"; // **IMPORTANTE: Substitua**
+        const numeroWhatsApp = "55428402-3985"; // **IMPORTANTE: Substitua**
         const mensagem = `Olá! Gostaria de saber qual a bateria ideal para o meu ${carModel}.`;
         const encodedMensagem = encodeURIComponent(mensagem);
         const whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodedMensagem}`;

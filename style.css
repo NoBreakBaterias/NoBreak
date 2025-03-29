@@ -361,5 +361,74 @@ footer p:last-child { margin-top: 1.5rem; font-size: 0.8rem; color: #aaa; }
     .whatsapp-button { bottom: 15px; right: 15px; width: 50px; height: 50px; font-size: 1.5rem; }
 }
 
-/* Estilos para a página de detalhes da bateria (Mantidos) */
-/* ... (código anterior mantido) ... */
+/* Estilos para a Seção do Mapa */
+.map-section {
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: var(--bg-color); /* Ou outra cor de fundo se preferir */
+}
+
+.map-section h2 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.map-section p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.map-container {
+    max-width: 900px; /* Limita a largura máxima do mapa */
+    margin: 0 auto 1.5rem auto; /* Centraliza e adiciona espaço abaixo */
+    border-radius: 8px; /* Opcional: arredonda os cantos */
+    overflow: hidden; /* Garante que o iframe fique dentro das bordas arredondadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.map-container iframe {
+    display: block; /* Remove espaço extra abaixo do iframe */
+    width: 100%; /* Garante que o iframe preencha o container */
+    height: 450px; /* Altura padrão */
+    border: 0; /* Remove qualquer borda padrão do iframe */
+}
+
+.map-directions-button {
+    background-color: var(--secondary-color); /* Cor escura */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    display: inline-flex; /* Para alinhar ícone e texto */
+    align-items: center;
+    gap: 0.5rem; /* Espaço entre ícone e texto */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.map-directions-button:hover {
+    background-color: #3b4b5c; /* Tom mais claro do cinza escuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+
+/* Ajuste Responsivo para o Mapa */
+@media (max-width: 768px) {
+    .map-section {
+        padding: 2rem 1rem; /* Menos padding lateral */
+    }
+
+    .map-container iframe {
+        height: 350px; /* Mapa um pouco menos alto no mobile */
+    }
+
+     .map-directions-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}

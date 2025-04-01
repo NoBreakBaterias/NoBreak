@@ -23,13 +23,21 @@
     <main>
         <!-- Landing Page -->
         <section class="landing-page">
-           <!-- ... (código da landing page como antes) ... -->
-             <div class="landing-content">
-                <img src="https://moura-portal.s3.amazonaws.com/ext/Moura_Pack_Frontal.png" alt="Bateria Moura" class="landing-image">
+            <div class="landing-content">
+                <div class="battery-images">
+                    <div class="battery-container">
+                        <img src="https://moura-portal.s3.amazonaws.com/ext/Moura_Pack_Frontal.png" alt="Bateria Moura" class="landing-image">
+                        <p class="battery-label">Moura</p>
+                    </div>
+                    <div class="battery-container">
+                        <img src="./zetta.png" alt="Bateria Zetta" class="landing-image">
+                        <p class="battery-label">Zetta</p>
+                    </div>
+                </div>
                 <div class="landing-text">
                     <h2>Potencialize Seu Carro com as Baterias NoBreak!</h2>
                     <p>Encontre a bateria ideal para seu veículo e garanta o melhor desempenho e durabilidade.</p>
-                     <a href="#search-container" class="landing-button">Consultar Bateria</a>
+                    <a href="#search-container" class="landing-button">Consultar Bateria</a>
                 </div>
             </div>
             <div class="landing-banner">
@@ -43,28 +51,28 @@
             <p>Digite o modelo do seu carro abaixo e fale conosco pelo WhatsApp!</p>
             <!-- Container da Barra e Resultados -->
             <div class="search-bar-container">
-                 <!-- Barra de Pesquisa e Botão -->
-                 <div class="search-input-wrapper">
+                <!-- Barra de Pesquisa (removido botão de lupa) -->
+                <div class="search-input-wrapper">
                     <input type="text" id="search-input" placeholder="Digite o modelo do seu carro...">
-                    <button id="search-button" aria-label="Buscar">
-                        <i class="fas fa-search"></i>
-                    </button>
                 </div>
                 <!-- Lista de Resultados -->
                 <ul id="search-results"></ul>
+                <!-- Novo botão "Encontre sua bateria" -->
+                <button id="search-button" class="find-battery-button">
+                    Encontre sua bateria <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
         </section>
 
         <!-- Seção do Mapa -->
-                <!-- Seção do Mapa -->
         <section class="map-section">
             <h2>Nossa Localização</h2>
             <p>Venha nos visitar! Tv. Rio de Janeiro, 1713 - Jd das araucárias 2, Castro - PR</p>
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3621.570765706819!2d-49.99787482463073!3d-24.810147377962224!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c29de0f556b0e3%3A0x8b97800079570872!2sNo%20break%20com%C3%A9rcio%20de%20baterias!5e0!3m2!1sen!2sbr!4v1743277543580!5m2!1sen!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-             <!-- Link de Direções Atualizado -->
-             <a href="https://www.google.com/maps/dir/?api=1&destination=No+break+comercio+de+baterias,+Tv.+Rio+de+Janeiro,+1713+-+Jd+das+araucarias+2,+Castro+-+PR,+84174-070" target="_blank" class="map-directions-button">
+            <!-- Link de Direções Atualizado -->
+            <a href="https://www.google.com/maps/dir/?api=1&destination=No+break+comercio+de+baterias,+Tv.+Rio+de+Janeiro,+1713+-+Jd+das+araucarias+2,+Castro+-+PR,+84174-070" target="_blank" class="map-directions-button">
                 <i class="fas fa-directions"></i> Obter Rotas
             </a>
         </section>
@@ -72,12 +80,11 @@
     </main>
 
     <footer>
-        <!-- ... (código do footer como antes) ... -->
-          <div class="contact-info">
+        <div class="contact-info">
             <h3>Precisa de Ajuda? Entre em Contato!</h3>
-            <p><i class="fas fa-phone"></i> Telefone: (XX) XXXX-XXXX</p>
-            <p><i class="fas fa-envelope"></i> Email: contato@example.com</p>
-            <p><i class="fas fa-map-marker-alt"></i> Endereço: Rua Exemplo, 123 - Cidade/UF</p>
+            <p><i class="fas fa-phone"></i> Telefone: (42) 98402-3985</p>
+            <!-- <p><i class="fas fa-envelope"></i> Email: contato@example.com</p> -->
+            <p><i class="fas fa-map-marker-alt"></i> Tv. Rio de Janeiro, 1713 - Jd das araucárias 2, Castro - PR</p>
         </div>
         <p>© 2024 NoBreak Baterias. Todos os direitos reservados.</p>
     </footer>

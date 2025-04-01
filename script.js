@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
     const searchButton = document.getElementById('search-button');
-    const searchBarContainer = document.querySelector('.search-bar-container'); // Seleciona o container
+    const searchBarContainer = document.querySelector('.search-bar-container');
     let carModels = [];
 
     fetch('carros.json')
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Por favor, digite ou selecione um modelo de carro.");
             return;
         }
-        const numeroWhatsApp = "554284023985"; // **IMPORTANTE: Substitua**
+        const numeroWhatsApp = "554284023985";
         const mensagem = `Olá! Gostaria de saber qual a bateria ideal para o meu ${carModel}.`;
         const encodedMensagem = encodeURIComponent(mensagem);
         const whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodedMensagem}`;
@@ -30,12 +30,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateResultsVisibility(show) {
         if (show && searchResults.children.length > 0) {
             searchResults.style.display = 'block';
-            searchResults.classList.add('visible'); // Adiciona classe para CSS
-            searchBarContainer.classList.add('results-visible'); // Adiciona classe no container
+            searchResults.classList.add('visible');
+            searchBarContainer.classList.add('results-visible');
         } else {
             searchResults.style.display = 'none';
-            searchResults.classList.remove('visible'); // Remove classe
-            searchBarContainer.classList.remove('results-visible'); // Remove classe no container
+            searchResults.classList.remove('visible');
+            searchBarContainer.classList.remove('results-visible');
         }
     }
 
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         searchResults.innerHTML = '';
 
         if (searchTerm.length < 2) {
-            updateResultsVisibility(false); // Esconde
+            updateResultsVisibility(false);
             return;
         }
 
@@ -58,25 +58,23 @@ document.addEventListener('DOMContentLoaded', function() {
             li.addEventListener('click', function() {
                 searchInput.value = model;
                 searchResults.innerHTML = '';
-                updateResultsVisibility(false); // Esconde após clicar
-                 // Opcional: Redirecionar direto
-                 // redirectToWhatsApp(model);
+                updateResultsVisibility(false);
             });
             searchResults.appendChild(li);
         });
 
-        updateResultsVisibility(true); // Mostra se houver resultados
+        updateResultsVisibility(true);
     });
 
     document.addEventListener('click', function(event) {
-        // Fecha se clicar fora do container da barra E da lista
         if (!searchBarContainer.contains(event.target)) {
-             updateResultsVisibility(false);
+            updateResultsVisibility(false);
         }
     });
 
+    // Atualizado para o novo botão "Encontre sua bateria"
     searchButton.addEventListener('click', function() {
-        updateResultsVisibility(false); // Esconde a lista antes de redirecionar
+        updateResultsVisibility(false);
         redirectToWhatsApp(searchInput.value);
     });
 
@@ -85,16 +83,13 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             const firstSuggestion = searchResults.querySelector('li');
             if (searchResults.style.display === 'block' && firstSuggestion) {
-                 searchInput.value = firstSuggestion.textContent;
-                 searchResults.innerHTML = '';
-                 updateResultsVisibility(false); // Esconde a lista
+                searchInput.value = firstSuggestion.textContent;
+                searchResults.innerHTML = '';
+                updateResultsVisibility(false);
             } else {
-                 updateResultsVisibility(false); // Garante que esconde se não houver sugestão
+                updateResultsVisibility(false);
             }
             redirectToWhatsApp(searchInput.value);
         }
     });
-
-    // O EVENTO DE SCROLL FOI REMOVIDO DAQUI
-
-}); // Fim do DOMContentLoaded
+});

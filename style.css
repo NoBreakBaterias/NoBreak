@@ -95,7 +95,7 @@ main {
     flex: 1;
 }
 
-/* Estilos para a Landing Page (Mantidos como antes) */
+/* Estilos para a Landing Page (Modificado para as duas baterias) */
 .landing-page {
     background-color: var(--bg-color);
     padding: 3rem 2rem;
@@ -114,12 +114,42 @@ main {
     margin: 0 auto;
 }
 
-.landing-image {
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+/* Novo estilo para o container das duas baterias */
+.battery-images {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
     flex-shrink: 0;
+}
+
+.battery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.battery-label {
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+/* Ajustes nas imagens das baterias */
+.landing-image {
+    width: 300px; 
+    height: 400px; /* Altura fixa para todas as imagens */
+    object-fit: contain; /* Mantém a proporção da imagem */
+    background-color: transparent; /* Remove o fundo branco */
+    padding: 10px;
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-image:hover {
+    transform: scale(1.05);
 }
 
 .landing-text {
@@ -178,8 +208,7 @@ main {
     object-fit: cover;
 }
 
-
-/* Seção de Pesquisa */
+/* Seção de Pesquisa (Modificada para o novo botão) */
 .search-section {
     padding: 3rem 2rem;
     text-align: center;
@@ -203,105 +232,94 @@ main {
 /* Container Principal da Barra e Resultados */
 .search-bar-container {
     max-width: 600px;
-    margin: 0 auto; /* Centraliza o container geral */
-    /* position: relative; */ /* REMOVIDO - Não precisa mais ser contexto de pos */
+    margin: 0 auto;
 }
 
-/* Wrapper Apenas para Input e Botão */
+/* Wrapper apenas para Input (removido botão da lupa) */
 .search-input-wrapper {
-    position: relative; /* Para posicionar o botão da lupa */
-    margin-bottom: 0; /* Remove margem para conectar com a lista */
+    position: relative;
+    margin-bottom: 10px; /* Espaço para o novo botão */
 }
 
 #search-input {
     padding: 0.8rem 1.2rem;
     width: 100%;
     border: 2px solid #ddd;
-    /* Borda inferior será controlada pela lista quando visível */
-    /* border-bottom-color: transparent; */
-    border-radius: 10px; /* Arredonda cantos superiores */
+    border-radius: 10px;
     font-size: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    padding-right: 50px;
 }
 
 #search-input:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 8px rgba(254, 202, 87, 0.5);
-    /* Mantém a borda inferior transparente no foco */
-     border-bottom-color: transparent !important;
 }
 
-#search-button {
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
+/* Estilo para o novo botão "Encontre sua bateria" */
+.find-battery-button {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+    border-radius: 8px;
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background-color 0.3s ease;
+    gap: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-#search-button:hover {
+.find-battery-button:hover {
     background-color: #eab543;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
-
-/* Lista de Resultados - Nova Abordagem */
+/* Lista de Resultados */
 #search-results {
     list-style: none;
     padding: 0;
-    margin: 0; /* Sem margem */
-    width: 100%; /* Ocupa a largura do .search-bar-container */
-    border: 2px solid #ddd; /* Borda igual ao input */
-    border-top: none; /* Remove borda superior */
-    border-radius: 0 0 8px 8px; /* Arredonda cantos inferiores */
+    margin: 0;
+    width: 100%;
+    border: 2px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
     background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Mantém a sombra */
-    /* position: absolute; */ /* REMOVIDO */
-    /* top: 100%; */ /* REMOVIDO */
-    /* left: 0; */ /* REMOVIDO */
-    /* right: 0; */ /* REMOVIDO */
-    z-index: 900; /* Mantido caso precise sobrepor algo abaixo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 900;
     max-height: 250px;
     overflow-y: auto;
-    display: none; /* Começa escondido */
-    text-align: left; /* Alinha texto à esquerda */
+    display: none;
+    text-align: left;
 }
 
-/* Estilo para quando a lista está visível (adicionado pelo JS) */
 #search-results.visible {
     display: block;
 }
 
-/* Ajuste visual para conectar input e lista quando visível */
-/* Quando a lista está visível, removemos o border-radius inferior do input */
-#search-input:has(~ #search-results.visible) { /* Funciona em navegadores modernos */
+#search-input:has(~ #search-results.visible) {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    border-bottom-color: transparent !important; /* Força a remoção da borda */
+    border-bottom-color: transparent !important;
 }
-/* Fallback ou alternativa se :has não funcionar */
+
 .search-bar-container.results-visible #search-input {
      border-bottom-left-radius: 0;
      border-bottom-right-radius: 0;
-     border-bottom-color: transparent !important; /* Força a remoção da borda */
-}
-.search-bar-container.results-visible #search-results {
-    border-color: var(--primary-color); /* Borda da lista destaca no foco */
-    border-top-color: #ddd; /* Restaura a cor da borda superior da lista */
+     border-bottom-color: transparent !important;
 }
 
+.search-bar-container.results-visible #search-results {
+    border-color: var(--primary-color);
+    border-top-color: #ddd;
+}
 
 #search-results li {
     padding: 0.75rem 1.2rem;
@@ -313,7 +331,7 @@ main {
     background-color: #f5f5f5;
 }
 
-/* Footer (Mantido como antes) */
+/* Footer */
 footer {
     background-color: var(--secondary-color);
     color: #ccc;
@@ -328,44 +346,15 @@ footer {
 .contact-info p i { color: var(--primary-color); }
 footer p:last-child { margin-top: 1.5rem; font-size: 0.8rem; color: #aaa; }
 
-/* WhatsApp Button (Mantido como antes) */
+/* WhatsApp Button */
 .whatsapp-button { position: fixed; bottom: 25px; right: 25px; background-color: var(--whatsapp-color); color: white; padding: 1rem; border-radius: 50%; font-size: 1.8rem; text-decoration: none; z-index: 999; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 3px 10px rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center; width: 60px; height: 60px; }
 .whatsapp-button:hover { background-color: #128c7e; transform: scale(1.05); }
-
-/* Responsividade (Ajustes menores na seção de pesquisa) */
-@media (max-width: 992px) {
-    .landing-content { flex-direction: column; text-align: center; }
-    .landing-image { max-width: 250px; margin-bottom: 2rem; }
-    .landing-text { margin-left: 0; text-align: center; }
-}
-@media (max-width: 768px) {
-    header { flex-direction: column; align-items: center; position: static; }
-    .logo a{ font-size: 3rem; margin-left: 0; padding: 0.5rem; }
-    nav { margin-top: 1rem; width: 100%; }
-    nav ul { flex-direction: column; align-items: center; width: 100%; }
-    nav ul li { margin-left: 0; margin-bottom: 0.5rem; width: 100%; text-align: center; }
-    nav a { display: block; padding: 0.8rem 1rem; }
-    main { padding: 0; }
-    .landing-page, .search-section { padding: 2rem 1rem; }
-    .landing-text h2 { font-size: 2rem; }
-    .landing-text p { font-size: 1.1rem; }
-    .search-section h2 { font-size: 1.8rem; }
-     .search-section p { font-size: 1rem; }
-    .search-bar-container { max-width: 95%; }
-     #search-input { padding: 0.7rem 1rem; padding-right: 45px; }
-    #search-button { width: 35px; height: 35px; font-size: 0.9rem; }
-    #search-results {
-         /* Ajuste para borda conectar melhor no mobile */
-         border-radius: 0 0 8px 8px;
-    }
-    .whatsapp-button { bottom: 15px; right: 15px; width: 50px; height: 50px; font-size: 1.5rem; }
-}
 
 /* Estilos para a Seção do Mapa */
 .map-section {
     padding: 3rem 2rem;
     text-align: center;
-    background-color: var(--bg-color); /* Ou outra cor de fundo se preferir */
+    background-color: var(--bg-color);
 }
 
 .map-section h2 {
@@ -381,53 +370,161 @@ footer p:last-child { margin-top: 1.5rem; font-size: 0.8rem; color: #aaa; }
 }
 
 .map-container {
-    max-width: 900px; /* Limita a largura máxima do mapa */
-    margin: 0 auto 1.5rem auto; /* Centraliza e adiciona espaço abaixo */
-    border-radius: 8px; /* Opcional: arredonda os cantos */
-    overflow: hidden; /* Garante que o iframe fique dentro das bordas arredondadas */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    max-width: 900px;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .map-container iframe {
-    display: block; /* Remove espaço extra abaixo do iframe */
-    width: 100%; /* Garante que o iframe preencha o container */
-    height: 450px; /* Altura padrão */
-    border: 0; /* Remove qualquer borda padrão do iframe */
+    display: block;
+    width: 100%;
+    height: 450px;
+    border: 0;
 }
 
 .map-directions-button {
-    background-color: var(--secondary-color); /* Cor escura */
+    background-color: var(--secondary-color);
     color: white;
     padding: 12px 25px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
-    display: inline-flex; /* Para alinhar ícone e texto */
+    display: inline-flex;
     align-items: center;
-    gap: 0.5rem; /* Espaço entre ícone e texto */
+    gap: 0.5rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .map-directions-button:hover {
-    background-color: #3b4b5c; /* Tom mais claro do cinza escuro */
+    background-color: #3b4b5c;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
+/* Responsividade (Ajustado para as duas baterias e novo botão) */
+@media (max-width: 992px) {
+    .landing-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .battery-images {
+        margin-bottom: 2rem;
+    }
+    .landing-text {
+        margin-left: 0;
+        text-align: center;
+    }
+}
 
-/* Ajuste Responsivo para o Mapa */
 @media (max-width: 768px) {
+
+    .landing-image {
+        width: 100px; 
+        height: 150px; /* Altura fixa para todas as imagens */
+        object-fit: contain; /* Mantém a proporção da imagem */
+        background-color: transparent; /* Remove o fundo branco */
+        padding: 0px;
+        transition: transform 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .battery-label {
+        font-weight: bold;
+        color: var(--secondary-color);
+        margin-top: -40px;
+        font-size: 1.1rem;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        position: static;
+    }
+    .logo a {
+        font-size: 3rem;
+        margin-left: 0;
+        padding: 0.5rem;
+    }
+    nav {
+        margin-top: 1rem;
+        width: 100%;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+        width: 100%;
+        text-align: center;
+    }
+    nav a {
+        display: block;
+        padding: 0.8rem 1rem;
+    }
+    main {
+        padding: 0;
+    }
+    .landing-page, .search-section {
+        padding: 2rem 1rem;
+    }
+    .landing-text h2 {
+        font-size: 2rem;
+    }
+    .landing-text p {
+        font-size: 1.1rem;
+    }
+    .search-section h2 {
+        font-size: 1.8rem;
+    }
+    .search-section p {
+        font-size: 1rem;
+    }
+    .search-bar-container {
+        max-width: 95%;
+    }
+    #search-input {
+        padding: 0.7rem 1rem;
+    }
+    
+    /* Ajuste para quando as baterias devem ficar em coluna no mobile muito pequeno */
+    @media (max-width: 400px) {
+        .battery-images {
+            flex-direction: row;
+            gap: 50px;
+        }
+    }
+    
+    .find-battery-button {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+    
+    #search-results {
+        border-radius: 0 0 8px 8px;
+    }
+    .whatsapp-button {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
     .map-section {
-        padding: 2rem 1rem; /* Menos padding lateral */
+        padding: 2rem 1rem;
     }
-
     .map-container iframe {
-        height: 350px; /* Mapa um pouco menos alto no mobile */
+        height: 350px;
     }
-
-     .map-directions-button {
+    .map-directions-button {
         padding: 10px 20px;
         font-size: 0.9rem;
     }

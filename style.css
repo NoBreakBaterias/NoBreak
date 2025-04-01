@@ -54,12 +54,41 @@ header {
     z-index: 1000;
 }
 
-.logo a {
+.logo {
+    display: flex;
+    align-items: row;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.logo-sub {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.logo-sub span {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* get the first logo a */
+.logo a:first-child {
     font-size: 4rem;
     font-weight: bold;
     color: white;
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 0rem 1rem;
+    margin-left: 1rem;
+}
+
+/* get the last a */
+.logo a:last-child {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    display: block;
+    padding: 0rem 1rem;
     margin-left: 1rem;
 }
 
@@ -116,7 +145,9 @@ main {
 
 /* Novo estilo para o container das duas baterias */
 .battery-images {
-    display: flex;
+    display: grid;
+    /* 2 colunas e 2 linhas */
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     justify-content: center;
     flex-shrink: 0;
@@ -131,14 +162,14 @@ main {
 .battery-label {
     font-weight: bold;
     color: var(--secondary-color);
-    margin-top: 10px;
+    margin-top: -50px;
     font-size: 1.1rem;
 }
 
 /* Ajustes nas imagens das baterias */
 .landing-image {
-    width: 300px; 
-    height: 400px; /* Altura fixa para todas as imagens */
+    width: 200px; 
+    height: 250px; /* Altura fixa para todas as imagens */
     object-fit: contain; /* Mantém a proporção da imagem */
     background-color: transparent; /* Remove o fundo branco */
     padding: 10px;
@@ -412,7 +443,7 @@ footer p:last-child { margin-top: 1.5rem; font-size: 0.8rem; color: #aaa; }
         text-align: center;
     }
     .battery-images {
-        margin-bottom: 2rem;
+        margin-bottom: 0rem;
     }
     .landing-text {
         margin-left: 0;
@@ -423,8 +454,8 @@ footer p:last-child { margin-top: 1.5rem; font-size: 0.8rem; color: #aaa; }
 @media (max-width: 768px) {
 
     .landing-image {
-        width: 100px; 
-        height: 150px; /* Altura fixa para todas as imagens */
+        width: 120px; 
+        height: 120px; /* Altura fixa para todas as imagens */
         object-fit: contain; /* Mantém a proporção da imagem */
         background-color: transparent; /* Remove o fundo branco */
         padding: 0px;
@@ -437,8 +468,18 @@ footer p:last-child { margin-top: 1.5rem; font-size: 0.8rem; color: #aaa; }
     .battery-label {
         font-weight: bold;
         color: var(--secondary-color);
-        margin-top: -40px;
+        margin-top: -15px;
         font-size: 1.1rem;
+    }
+
+    .logo a:first-child {
+        font-size: 3rem;
+        margin-left: 0;
+    }
+
+    .logo a:last-child {
+        font-size: 1.2rem;
+        margin-left: 0;
     }
 
     header {
@@ -499,7 +540,7 @@ footer p:last-child { margin-top: 1.5rem; font-size: 0.8rem; color: #aaa; }
     @media (max-width: 400px) {
         .battery-images {
             flex-direction: row;
-            gap: 50px;
+            gap: 10px;
         }
     }
     

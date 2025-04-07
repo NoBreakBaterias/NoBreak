@@ -72,18 +72,10 @@ header {
     font-weight: bold;
 }
 
-/* get the first logo a */
-.logo a:first-child {
-    font-size: 4rem;
-    font-weight: bold;
-    color: white;
-    display: block;
-    padding: 0rem 1rem;
-    margin-left: 1rem;
-}
+
 
 /* get the last a */
-.logo a:last-child {
+.logo a {
     font-size: 1.2rem;
     color: var(--primary-color);
     font-weight: bold;
@@ -92,8 +84,25 @@ header {
     margin-left: 1rem;
 }
 
+/* get the first logo a */
+/* make the padding on this one overrride the logo a padding */
+
+.logo a:first-child {
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    display: block;
+    padding: 0rem 1rem;
+    margin-left: 1rem;
+    margin-bottom: -1rem;
+}
+
 .logo-no {
     color: var(--primary-color);
+}
+
+.logo-entrega {
+    color: white;
 }
 
 nav ul {
@@ -436,6 +445,12 @@ footer p:last-child { margin-top: 1.5rem; font-size: 0.8rem; color: #aaa; }
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
+.telefone {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-top: 1rem;
+}
+
 /* Responsividade (Ajustado para as duas baterias e novo botão) */
 @media (max-width: 992px) {
     .landing-content {
@@ -473,7 +488,7 @@ footer p:last-child { margin-top: 1.5rem; font-size: 0.8rem; color: #aaa; }
     }
 
     .logo a:first-child {
-        font-size: 3rem;
+        font-size: 3.5rem;
         margin-left: 0;
     }
 
@@ -488,9 +503,16 @@ footer p:last-child { margin-top: 1.5rem; font-size: 0.8rem; color: #aaa; }
         position: static;
     }
     .logo a {
-        font-size: 3rem;
-        margin-left: 0;
-        padding: 0.5rem;
+        /* font-size: 3rem; */
+        margin: 0 0;
+        /* padding: 0.5rem; */
+    }
+    .logo-sub span {
+        font-size: 0.8rem;
+    }
+    .logo-entrega span {
+        font-size: 0.8rem;
+        line-height: 1px;
     }
     nav {
         margin-top: 1rem;

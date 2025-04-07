@@ -446,9 +446,7 @@ footer p:last-child { margin-top: 1.5rem; font-size: 0.8rem; color: #aaa; }
 }
 
 .telefone {
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-    margin-top: 1rem;
+    font-size: 1.5rem;
 }
 
 /* Responsividade (Ajustado para as duas baterias e novo botão) */
